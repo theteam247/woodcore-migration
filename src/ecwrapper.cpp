@@ -230,6 +230,7 @@ bool CECKey::Sign(const uint256 &hash, std::vector<unsigned char>& vchSig, bool 
 	ECDSA_SIG_get0(sig, &r, &s);
 
 	BIGNUM * s1;
+    s1= BN_new();
 	BN_copy(s1,s);
 
     if (lowS && BN_cmp(s, halforder) > 0) {
