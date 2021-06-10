@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 #include <string>
-
+#include <time.h>
 /**
  * GetTimeMicros() and GetTimeMillis() both return the system time, but in
  * different units. GetTime() returns the system time in seconds, but also
@@ -18,7 +18,13 @@
  * TODO: Rework these functions to be type-safe (so that we don't inadvertently
  * compare numbers with different units, or compare a mocktime to system time).
  */
+#ifdef __MINGW32__
+static struct tm* gmtime_r(const time_t* t, struct tm* r) { // gmtime is threadsafe in windows because it uses TLS
+    struct tm *theTm = gmtime(t); if (theTm) { *r = *theTm; return r; } else { return 0; }
+}
 
+extern struct tm* gmtime_r(const time_t* t, struct tm* r);
+#endif
 int64_t GetTime();
 int64_t GetTimeMillis();
 int64_t GetTimeMicros();

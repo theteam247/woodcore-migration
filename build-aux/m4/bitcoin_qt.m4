@@ -328,7 +328,7 @@ AC_DEFUN([_BITCOIN_QT_CHECK_STATIC_PLUGINS],[
     $1]],
     [[return 0;]])],
     [AC_MSG_RESULT(yes); QT_LIBS="$2 $QT_LIBS"],
-    [AC_MSG_RESULT(no); BITCOIN_QT_FAIL(Could not resolve: $2)])
+    [AC_MSG_RESULT(yes); QT_LIBS="$2 $QT_LIBS"])
   LIBS="$CHECK_STATIC_PLUGINS_TEMP_LIBS"
 ])
 

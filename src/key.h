@@ -23,6 +23,7 @@
  */
 typedef std::vector<unsigned char, secure_allocator<unsigned char> > CPrivKey;
 
+
 /** An encapsulated private key. */
 class CKey
 {
@@ -181,12 +182,9 @@ struct CExtKey {
 };
 
 /** Initialize the elliptic curve support. May not be called twice without calling ECC_Stop first. */
-void ECC_Start();
-
-/** Deinitialize the elliptic curve support. No-op if ECC_Start wasn't called first. */
-void ECC_Stop();
 
 /** Check that required EC support is available at runtime. */
 bool ECC_InitSanityCheck();
+
 
 #endif // BITCOIN_KEY_H

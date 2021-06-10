@@ -63,7 +63,7 @@ int main(int argc, char** argv)
     const fs::path bench_datadir{SetDataDir()};
 
     SHA256AutoDetect();
-    ECC_Start();
+    //ECC_Start();
     SetupEnvironment();
 
     int64_t evaluations = gArgs.GetArg("-evals", DEFAULT_BENCH_EVALUATIONS);
@@ -90,7 +90,7 @@ int main(int argc, char** argv)
 
     fs::remove_all(bench_datadir);
 
-    ECC_Stop();
+    //ECC_Stop();
 
     return EXIT_SUCCESS;
 }
