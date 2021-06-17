@@ -4,7 +4,7 @@ $(package)_download_path=http://mirrors.ustc.edu.cn/qtproject/archive/qt/5.12/5.
 $(package)_suffix=everywhere-src-$($(package)_version).tar.xz
 $(package)_file_name=qtbase-$($(package)_suffix)
 $(package)_sha256_hash=1c1b4e33137ca77881074c140d54c3c9747e845a31338cfe8680f171f0bc3a39
-$(package)_dependencies=openssl zlib
+$(package)_dependencies=openssl
 $(package)_linux_dependencies=freetype fontconfig libxcb libxkbcommon
 $(package)_qt_libs=corelib network widgets gui plugins testlib
 $(package)_patches=fix_qt_pkgconfig.patch mac-qmake.conf fix_no_printer.patch no-xlib.patch
@@ -28,7 +28,7 @@ $(package)_config_opts_release += -silent
 $(package)_config_opts_debug = -debug
 $(package)_config_opts_debug += -optimized-tools
 $(package)_config_opts += -bindir $(build_prefix)/bin
-$(package)_config_opts += -c++std c++11
+$(package)_config_opts += -c++std c++1z
 $(package)_config_opts += -confirm-license
 $(package)_config_opts += -hostprefix $(build_prefix)
 $(package)_config_opts += -no-compile-examples
@@ -172,6 +172,7 @@ $(package)_config_opts_android += -L $(host_prefix)/lib
 $(package)_config_opts_android += -I $(host_prefix)/include
 $(package)_config_opts_android += -pch
 $(package)_config_opts_android += -no-feature-vulkan
+
 
 $(package)_config_opts_aarch64_android += -android-arch arm64-v8a
 $(package)_config_opts_armv7a_android += -android-arch armeabi-v7a

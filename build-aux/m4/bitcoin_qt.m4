@@ -337,7 +337,7 @@ dnl Inputs: qt_plugin_path. optional.
 dnl Outputs: QT_LIBS is appended
 AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUGINS],[
     if test "x$qt_plugin_path" != x; then
-      QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms"
+      QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms -L$qt_plugin_path/styles"
       if test -d "$qt_plugin_path/accessible"; then
         QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
       fi
@@ -358,9 +358,9 @@ AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUGINS],[
          PKG_CHECK_MODULES([X11XCB], [x11-xcb], [QT_LIBS="$X11XCB_LIBS $QT_LIBS"])
          PKG_CHECK_MODULES([QTXCBQPA], [Qt5XcbQpa], [QT_LIBS="$QTXCBQPA_LIBS $QT_LIBS"])
        elif test "x$TARGET_OS" = xdarwin; then
-         PKG_CHECK_MODULES([QTCLIPBOARD], [Qt5ClipboardSupport], [QT_LIBS="-lQt5ClipboardSupport $QT_LIBS"])
-         PKG_CHECK_MODULES([QTGRAPHICS], [Qt5GraphicsSupport], [QT_LIBS="-lQt5GraphicsSupport $QT_LIBS"])
-         PKG_CHECK_MODULES([QTCGL], [Qt5CglSupport], [QT_LIBS="-lQt5CglSupport $QT_LIBS"])
+         PKG_CHECK_MODULES([QTCLIPBOARD], [Qt5ClipboardSupport], [QT_LIBS="-lQt5ClipboardSupport -framework QuartzCore -lqcocoa -lqmacstyle $QT_LIBS"])
+         PKG_CHECK_MODULES([QTGRAPHICS], [Qt5GraphicsSupport], [QT_LIBS="-lQt5GraphicsSupport -framework IOSurface -framework Metal -framework Carbon $QT_LIBS"])
+
        fi
      ])
      else
