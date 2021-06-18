@@ -77,6 +77,8 @@ fi
 if test x@host_os@ = xmingw32; then
   if test -z $with_qt_incdir; then
     with_qt_incdir=$depends_prefix/include
+    BDB_LIBS=-ldb_cxx-4.8
+    BDB_CFLAGS=$depends_prefix/include
   fi
   if test -z $with_qt_libdir; then
     with_qt_libdir=$depends_prefix/lib
