@@ -13,6 +13,6 @@ RUN sed -i 's/qw\/glob/qw\/:glob/g' /usr/local/src/openssl-1.1.0g/util/process_d
 RUN cd /usr/local/src/openssl-1.1.0g/ && ./config --prefix=/opt/openssl && make && make install
 RUN git clone --depth=1 https://github.com/team247/woodcore.git
 WORKDIR /woodcore
-RUN cd /woodcore && ./autogen.sh && ./configure  SSL_CFLAGS="-I/opt/openssl/include -L/opt/openssl/lib" SSL_LIBS="-lcrypto -lssl" --disable-ccache   --disable-tests --with-libs=no  --without-gui --disable-wallet && make -j2
+RUN cd /woodcore && ./autogen.sh && ./configure  SSL_CFLAGS="-I/opt/openssl/include -L/opt/openssl/lib" SSL_LIBS="-lcrypto -lssl" --disable-ccache --disable-bench  --disable-tests --with-libs=no  --without-gui --disable-wallet && make -j2
 CMD /woodcore/src/woodcoind --debug --printtoconsole
 #docker run --rm --name woodcoin -p8apt-get install python-software-properties338:8338 -p18338:18338 -vD:\woodcoindata:/root/.woodcoin woodcoin bash
