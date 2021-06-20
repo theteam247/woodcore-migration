@@ -12,7 +12,7 @@
       <paths name="ubuntu">
         <serverdata>
           <mappings>
-            <mapping deploy="/litecoin" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/woodcore" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
