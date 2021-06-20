@@ -123,8 +123,8 @@ public:
         // release ASAP to avoid it where possible.
         vSeeds.emplace_back("woodcoin.org");
         vSeeds.emplace_back("dnsseed.woodcoin.org");
-//        vSeeds.emplace_back("dnsseed.litecointools.com");
-//        vSeeds.emplace_back("dnsseed.litecoinpool.org");
+//        vSeeds.emplace_back("dnsseed.woodcointools.com");
+//        vSeeds.emplace_back("dnsseed.woodcoinpool.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,73);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
