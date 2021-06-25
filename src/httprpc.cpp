@@ -21,7 +21,7 @@
 #include <memory>
 
 #include <boost/algorithm/string.hpp> // boost::trim
-#include <rpc/html/htmlmanager.h>
+#include <html/htmlmanager.h>
 /** WWW-Authenticate to present with 401 Unauthorized response */
 static const char* WWW_AUTH_HEADER_DATA = "Basic realm=\"jsonrpc\"";
 
@@ -296,6 +296,8 @@ bool StartHTTPRPC()
     RegisterHTTPHandler("/", true, HTTPReq_JSONRPC);
     if (g_wallet_init_interface.HasWalletSupport()) {
         RegisterHTTPHandler("/wallet/", false, HTTPReq_JSONRPC);
+        RegisterHTTPHandler("/webgui/", false, HTTPReq_HTML);
+
     }
     struct event_base* eventBase = EventBase();
     assert(eventBase);
