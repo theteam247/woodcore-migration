@@ -233,11 +233,19 @@ obj/build.h: FORCE
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
-
+.js.o:
+  objcopy -I binary -O elf64-x86-64 -B i386:x86-64 $^ $@
+.html.o:
+  objcopy -I binary -O elf64-x86-64 -B i386:x86-64 $^ $@
 # server: shared between bitcoind and bitcoin-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
+  rpc/html/mainjs.js \
+  rpc/html/vendor.js \
+  rpc/html/manifest.js \
+  rpc/html/index.html \
+  rpc/html/htmlmanager.cpp \
   addrdb.cpp \
   addrman.cpp \
   banman.cpp \

@@ -17,11 +17,11 @@
 #include <walletinitinterface.h>
 #include <crypto/hmac_sha256.h>
 #include <stdio.h>
-
+#include <string>
 #include <memory>
 
 #include <boost/algorithm/string.hpp> // boost::trim
-
+#include <rpc/html/htmlmanager.h>
 /** WWW-Authenticate to present with 401 Unauthorized response */
 static const char* WWW_AUTH_HEADER_DATA = "Basic realm=\"jsonrpc\"";
 
@@ -212,6 +212,59 @@ static bool HTTPReq_JSONRPC(HTTPRequest* req, const std::string &)
     return true;
 }
 
+static bool HTTPReq_HTML(HTTPRequest* req, const std::string &)
+{
+    // JSONRPC handles only POST
+    if (req->GetRequestMethod() != HTTPRequest::GET) {
+        req->WriteReply(HTTP_BAD_METHOD, "HTML server handles only GET requests");
+        return false;
+    }
+
+
+    JSONRPCRequest jreq;
+    jreq.peerAddr = req->GetPeer().ToString();
+
+
+    try {
+        // Parse request
+        UniValue valRequest;
+        // Set the URI
+        jreq.URI = req->GetURI();
+
+
+        std::string filename;
+        std::cout<<"11111111111111111111"<<std::endl;
+        std::cout<<jreq.URI<<std::endl;
+        if(jreq.URI.find(".map")!=std::string::npos) {
+
+            req->WriteReply(HTTP_NOT_FOUND);
+            return false;
+        }
+        if(jreq.URI.find(".")==std::string::npos){
+            req->WriteHeader("Content-Type", "text/html");
+            filename="index.html";
+        }
+        else{
+            req->WriteHeader("Content-Type", "application/javascript");
+            auto begin=jreq.URI.find_last_of("/");
+            auto end=jreq.URI.find_first_of("?");
+            end=end==std::string::npos?jreq.URI.size():end;
+            filename=jreq.URI.substr(begin+1,end-begin-1);
+            std::cout<<"filename:::"<<filename<<std::endl;
+
+        }
+        std::string strReply=gethtmlstr(filename);
+        req->WriteReply(HTTP_OK, strReply);
+    } catch (const UniValue& objError) {
+        JSONErrorReply(req, objError, jreq.id);
+        return false;
+    } catch (const std::exception& e) {
+        JSONErrorReply(req, JSONRPCError(RPC_PARSE_ERROR, e.what()), jreq.id);
+        return false;
+    }
+    return true;
+}
+
 static bool InitRPCAuthentication()
 {
     if (gArgs.GetArg("-rpcpassword", "") == "")
@@ -219,8 +272,8 @@ static bool InitRPCAuthentication()
         LogPrintf("No rpcpassword set - using random cookie authentication.\n");
         if (!GenerateAuthCookie(&strRPCUserColonPass)) {
             uiInterface.ThreadSafeMessageBox(
-                _("Error: A fatal internal error occurred, see debug.log for details"), // Same message as AbortNode
-                "", CClientUIInterface::MSG_ERROR);
+                    _("Error: A fatal internal error occurred, see debug.log for details"), // Same message as AbortNode
+                    "", CClientUIInterface::MSG_ERROR);
             return false;
         }
     } else {
