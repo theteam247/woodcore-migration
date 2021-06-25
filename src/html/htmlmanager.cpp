@@ -18,6 +18,10 @@ std::map<std::string,std::vector<char*>> filetable{
         {"vendor.js",{_binary_html_vendor_js_start,_binary_html_vendor_js_end}}
 };
 string gethtmlstr(string& url){
+    auto iter = filetable.find(url);
+    if(iter==filetable.end()){
+     return string();
+    }
 	return string(filetable[url][0],static_cast<int>(filetable[url][1]-filetable[url][0]));
 	
 }

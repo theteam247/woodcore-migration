@@ -254,6 +254,10 @@ static bool HTTPReq_HTML(HTTPRequest* req, const std::string &)
 
         }
         std::string strReply=gethtmlstr(filename);
+        if (strReply.size()==0){
+            req->WriteReply(HTTP_NOT_FOUND);
+            return false;
+        }
         req->WriteReply(HTTP_OK, strReply);
     } catch (const UniValue& objError) {
         JSONErrorReply(req, objError, jreq.id);
