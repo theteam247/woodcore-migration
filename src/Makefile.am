@@ -237,6 +237,10 @@ libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
 .html.o:
 	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+.ttf.o:
+	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+.woff.o:
+	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
 # server: shared between bitcoind and bitcoin-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -246,6 +250,16 @@ libbitcoin_server_a_SOURCES = \
   html/manifest.js \
   html/index.html \
   html/htmlmanager.cpp \
+  html/fonts/Heebo-Black.ttf \
+  html/fonts/Heebo-Bold.ttf \
+  html/fonts/Heebo-ExtraBold.ttf \
+  html/fonts/Heebo-Light.ttf \
+  html/fonts/Heebo-Medium.ttf \
+  html/fonts/Heebo-Regular.ttf \
+  html/fonts/Heebo-Thin.ttf \
+  html/fonts/ionicons.ttf \
+  html/fonts/535877f50039c0cb49a6196a5b7517cd.woff \
+  html/fonts/732389ded34cb9c52dd88271f1345af9.ttf \
   addrdb.cpp \
   addrman.cpp \
   banman.cpp \
