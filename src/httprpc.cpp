@@ -20,6 +20,8 @@
 #include <string>
 #include <memory>
 
+#include <fstream>
+#include <iostream>
 #include <boost/algorithm/string.hpp> // boost::trim
 #include <html/htmlmanager.h>
 /** WWW-Authenticate to present with 401 Unauthorized response */
@@ -243,6 +245,13 @@ static bool HTTPReq_HTML(HTTPRequest* req, const std::string &)
         if(jreq.URI.find(".")==std::string::npos){
             req->WriteHeader("Content-Type", "text/html");
             filename="index.html";
+        }
+        else if(jreq.URI.find(".dat")!=std::string::npos){
+            auto begin=jreq.URI.find_last_of("/");
+            auto end=jreq.URI.find_first_of("?");
+            end=end==std::string::npos?jreq.URI.size():end;
+            filename=jreq.URI.substr(begin+1,end-begin-1);
+
         }
         else{
             req->WriteHeader("Content-Type", "application/javascript");
