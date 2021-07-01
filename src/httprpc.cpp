@@ -222,8 +222,30 @@ static bool HTTPReq_HTML(HTTPRequest* req, const std::string &)
         return false;
     }
 
+    // Check authorization
+    std::pair<bool, std::string> authHeader = req->GetHeader("authorization");
+    if (!authHeader.first) {
+        req->WriteHeader("WWW-Authenticate", WWW_AUTH_HEADER_DATA);
+        req->WriteReply(HTTP_UNAUTHORIZED);
+        return false;
+    }
 
     JSONRPCRequest jreq;
+    jreq.peerAddr = req->GetPeer().ToString();
+    if (!RPCAuthorized(authHeader.second, jreq.authUser)) {
+        LogPrintf("ThreadRPCServer incorrect password attempt from %s\n", jreq.peerAddr);
+
+        /* Deter brute-forcing
+           If this results in a DoS the user really
+           shouldn't have their RPC port exposed. */
+        MilliSleep(250);
+
+        req->WriteHeader("WWW-Authenticate", WWW_AUTH_HEADER_DATA);
+        req->WriteReply(HTTP_UNAUTHORIZED);
+        return false;
+    }
+
+
     jreq.peerAddr = req->GetPeer().ToString();
 
 
