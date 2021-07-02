@@ -21017,8 +21017,6 @@ const genesistransaction = {
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -26724,7 +26722,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".walletbold{text-align:left}.walletbold,.walletnum{display:inline-block;width:150px}.walletnum{text-align:right}.el-input__inner{height:25px}.el-input__suffix{top:7px}", ""]);
+exports.push([module.i, ".el-form{text-align:center}.el-form-item__content{display:inline-block}.el-form-item__label{float:none;display:inline-block;width:80px}", ""]);
 
 // exports
 
@@ -26738,7 +26736,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".el-form{text-align:center}.el-form-item__content{display:inline-block}.el-form-item__label{float:none;display:inline-block;width:80px}", ""]);
+exports.push([module.i, ".walletbold{text-align:left}.walletbold,.walletnum{display:inline-block;width:150px}.walletnum{text-align:right}.el-input__inner{height:25px}.el-input__suffix{top:7px}", ""]);
 
 // exports
 
@@ -34286,9 +34284,9 @@ var Component = normalizeComponent(
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_send_vue__ = __webpack_require__(80);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3eea815a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_send_vue__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3eea815a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_send_vue__ = __webpack_require__(285);
 function injectStyle (ssrContext) {
-  __webpack_require__(296)
+  __webpack_require__(295)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
@@ -34400,9 +34398,9 @@ var Component = normalizeComponent(
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_wallet_vue__ = __webpack_require__(83);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2befc5de_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_722bc723_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__ = __webpack_require__(286);
 function injectStyle (ssrContext) {
-  __webpack_require__(295)
+  __webpack_require__(296)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
@@ -34420,7 +34418,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_wallet_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2befc5de_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_722bc723_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_wallet_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -34465,7 +34463,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"center"}},[_c('div',[_c('el-dropdown',{staticStyle:{"width":"150px","text-align":"left"},attrs:{"trigger":"click"}},[_c('span',{staticClass:"el-dropdown-link"},[_vm._v("\r\n    file"),_c('i',{staticClass:"el-icon-arrow-down el-icon--right"})]),_vm._v(" "),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',[_vm._v("import privkey")]),_vm._v(" "),_c('el-dropdown-item',[_vm._v("狮子头")]),_vm._v(" "),_c('el-dropdown-item',[_vm._v("螺蛳粉")]),_vm._v(" "),_c('el-dropdown-item',{attrs:{"disabled":""}},[_vm._v("双皮奶")]),_vm._v(" "),_c('el-dropdown-item',{attrs:{"divided":""}},[_vm._v("蚵仔煎")])],1)],1),_vm._v(" "),_c('el-select',{staticStyle:{"width":"150px","height":"25px"},attrs:{"placeholder":"choose wallet"},on:{"change":_vm.setdefaultwallet},model:{value:(_vm.walletname),callback:function ($$v) {_vm.walletname=$$v},expression:"walletname"}},_vm._l((_vm.wallets),function(item){return _c('el-option',{key:item,attrs:{"label":item=='' ? 'default wallet': item,"value":item}})}),1)],1),_vm._v(" "),_c('div',[_c('div',[_c('div',[_c('b',{staticClass:"walletbold"},[_vm._v("Availabel:")]),_c('div',{staticClass:"walletnum"},[_vm._v(_vm._s(_vm.info.balance)+"LOG")])])]),_vm._v(" "),_c('div',[_c('div',[_c('b',{staticClass:"walletbold"},[_vm._v("Pending:")]),_c('div',{staticClass:"walletnum"},[_vm._v(_vm._s(_vm.info.unconfirmed_balance)+"LOG")])])]),_vm._v(" "),_c('div',[_c('div',[_c('b',{staticClass:"walletbold"},[_vm._v("Total:")]),_c('div',{staticClass:"walletnum"},[_vm._v(_vm._s(_vm.info.balance+_vm.info.unconfirmed_balance)+"LOG")])])])])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('el-form',{attrs:{"label-width":"80px"}},[_vm._l((_vm.paytos),function(payto,i){return _c('div',[_c('el-form-item',{attrs:{"label":"Pay to:"}},[_c('el-input',{staticStyle:{"width":"500px"},model:{value:(payto.payto),callback:function ($$v) {_vm.$set(payto, "payto", $$v)},expression:"payto.payto"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"Amount:"}},[_c('el-input',{staticStyle:{"width":"500px"},model:{value:(payto.amount),callback:function ($$v) {_vm.$set(payto, "amount", $$v)},expression:"payto.amount"}})],1)],1)}),_vm._v(" "),_c('el-form-item',{attrs:{"label":"Fee:"}},[_c('el-input',{staticStyle:{"width":"500px"},model:{value:(_vm.fee),callback:function ($$v) {_vm.fee=$$v},expression:"fee"}},[_c('template',{slot:"append"},[_vm._v("per\r\n\r\n\r\n        kilobyte")])],2)],1),_vm._v(" "),_c('el-form-item',[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.onSubmit}},[_vm._v("send")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.clear}},[_vm._v("Clear ALL")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.dup}},[_vm._v("Add Recipient")])],1)],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -34475,7 +34473,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('el-form',{attrs:{"label-width":"80px"}},[_vm._l((_vm.paytos),function(payto,i){return _c('div',[_c('el-form-item',{attrs:{"label":"Pay to:"}},[_c('el-input',{staticStyle:{"width":"500px"},model:{value:(payto.payto),callback:function ($$v) {_vm.$set(payto, "payto", $$v)},expression:"payto.payto"}})],1),_vm._v(" "),_c('el-form-item',{attrs:{"label":"Amount:"}},[_c('el-input',{staticStyle:{"width":"500px"},model:{value:(payto.amount),callback:function ($$v) {_vm.$set(payto, "amount", $$v)},expression:"payto.amount"}})],1)],1)}),_vm._v(" "),_c('el-form-item',{attrs:{"label":"Fee:"}},[_c('el-input',{staticStyle:{"width":"500px"},model:{value:(_vm.fee),callback:function ($$v) {_vm.fee=$$v},expression:"fee"}},[_c('template',{slot:"append"},[_vm._v("per\r\n\r\n\r\n        kilobyte")])],2)],1),_vm._v(" "),_c('el-form-item',[_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.onSubmit}},[_vm._v("send")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.clear}},[_vm._v("Clear ALL")]),_c('el-button',{attrs:{"type":"primary"},on:{"click":_vm.dup}},[_vm._v("Add Recipient")])],1)],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"center"}},[_c('div',[_c('el-dropdown',{staticStyle:{"width":"150px","text-align":"left"},attrs:{"trigger":"click"}},[_c('span',{staticClass:"el-dropdown-link"},[_vm._v("\r\n    file"),_c('i',{staticClass:"el-icon-arrow-down el-icon--right"})]),_vm._v(" "),_c('el-dropdown-menu',{attrs:{"slot":"dropdown"},slot:"dropdown"},[_c('el-dropdown-item',[_vm._v("import privkey(address) to current wallet")]),_vm._v(" "),_c('el-dropdown-item',[_vm._v("create new wallet")])],1)],1),_vm._v(" "),_c('el-select',{staticStyle:{"width":"150px","height":"25px"},attrs:{"placeholder":"choose wallet"},on:{"change":_vm.setdefaultwallet},model:{value:(_vm.walletname),callback:function ($$v) {_vm.walletname=$$v},expression:"walletname"}},_vm._l((_vm.wallets),function(item){return _c('el-option',{key:item,attrs:{"label":item=='' ? 'default wallet': item,"value":item}})}),1)],1),_vm._v(" "),_c('div',[_c('div',[_c('div',[_c('b',{staticClass:"walletbold"},[_vm._v("Availabel:")]),_c('div',{staticClass:"walletnum"},[_vm._v(_vm._s(_vm.info.balance)+"LOG")])])]),_vm._v(" "),_c('div',[_c('div',[_c('b',{staticClass:"walletbold"},[_vm._v("Pending:")]),_c('div',{staticClass:"walletnum"},[_vm._v(_vm._s(_vm.info.unconfirmed_balance)+"LOG")])])]),_vm._v(" "),_c('div',[_c('div',[_c('b',{staticClass:"walletbold"},[_vm._v("Total:")]),_c('div',{staticClass:"walletnum"},[_vm._v(_vm._s(_vm.info.balance+_vm.info.unconfirmed_balance)+"LOG")])])])])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -37722,7 +37720,7 @@ var content = __webpack_require__(204);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("46aace3a", content, true, {});
+var update = __webpack_require__(9)("0467f774", content, true, {});
 
 /***/ }),
 /* 296 */
@@ -37735,7 +37733,7 @@ var content = __webpack_require__(205);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(9)("0467f774", content, true, {});
+var update = __webpack_require__(9)("603829a7", content, true, {});
 
 /***/ }),
 /* 297 */
@@ -37839,4 +37837,4 @@ module.exports = function(module) {
 
 /***/ })
 ],[160]);
-//# sourceMappingURL=mainjs.js.map?55c4b511bb128febde23
+//# sourceMappingURL=mainjs.js.map?69991a0c1dd4f15ccba6
