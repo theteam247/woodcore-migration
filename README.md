@@ -1,3 +1,11 @@
+### demo:
+
+http://15.164.152.116:9332/webgui/#/blocks/
+
+**account:**theteam247
+
+**password:**theteam247pwd
+
 woodcoin Core integration/staging tree
 =====================================
 
