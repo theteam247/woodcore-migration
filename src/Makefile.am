@@ -233,14 +233,20 @@ obj/build.h: FORCE
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
+
+if TARGET_WINDOWS
+OBJCOPYOUTPUT="pe-x86-64"
+else
+OBJCOPYOUTPUT="elf64-x86-64"
+endif
 .js.o:
-	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
 .html.o:
-	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
 .ttf.o:
-	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
 .woff.o:
-	$(OBJCOPY) -I binary -O elf64-x86-64 -B i386:x86-64 $< $@
+	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
 # server: shared between bitcoind and bitcoin-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -654,6 +660,8 @@ clean-local:
 	-$(MAKE) -C univalue clean
 	-rm -f leveldb/*/*.gcda leveldb/*/*.gcno leveldb/helpers/memenv/*.gcda leveldb/helpers/memenv/*.gcno
 	-rm -f config.h
+	-rm -f html/*.o
+	-rm -f html/fonts/*.o
 	-rm -rf test/__pycache__
 
 .rc.o:

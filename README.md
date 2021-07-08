@@ -6,83 +6,48 @@ http://15.164.152.116:9332/webgui/#/blocks/
 
 <u>password:</u>theteam247pwd
 
-woodcoin Core integration/staging tree
-=====================================
+### build for windows on ubuntu:
 
-[![Build Status](https://travis-ci.org/woodcoin-project/woodcoin.svg?branch=master)](https://travis-ci.org/woodcoin-project/woodcoin)
+```
+sudo apt-get install git make automake cmake curl g++-multilib libtool binutils-gold bsdmainutils 
+sudo apt-get install pkg-config python3 patch bison build-essential g++-mingw-w64-x86-64 nsis
+echo 1 | sudo update-alternatives --config x86_64-w64-mingw32-g++
+git clone https://github.com/team247/woodcore.git
+cd woodcore/depends
+make HOST=x86_64-w64-mingw32 -j4
+cd ..
+./autogen.sh
+CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure
+make -j4
+```
 
-https://woodcoin.org
+### build for linux:
 
-What is woodcoin?
-----------------
+```
+sudo apt-get install git make automake cmake curl g++-multilib libtool binutils-gold bsdmainutils
+sudo apt-get install pkg-config python3 patch bison build-essential
+git clone https://github.com/team247/woodcore.git
+cd woodcore/depends
+make HOST=x86_64-pc-linux-gnu -j4
+cd ..
+./autogen.sh
+CONFIG_SITE=$PWD/depends/x86_64-pc-linux-gnu/share/config.site ./configure
+make -j4
+```
 
-woodcoin is an experimental digital currency that enables instant payments to
-anyone, anywhere in the world. woodcoin uses peer-to-peer technology to operate
-with no central authority: managing transactions and issuing money are carried
-out collectively by the network. woodcoin Core is the name of open source
-software which enables the use of this currency.
 
-For more information, as well as an immediately useable, binary version of
-the woodcoin Core software, see [https://woodcoin.org](https://woodcoin.org).
 
-License
--------
+Common `host-platform-triplet`s for cross compilation are:
 
-woodcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
-information or see https://opensource.org/licenses/MIT.
+- `x86_64-pc-linux-gnu` for x86 Linux (make HOST=x86_64-pc-linux-gnu -j4)
+- `x86_64-w64-mingw32` for Win64 (make HOST=x86_64-pc-linux-gnu -j4)
+- `x86_64-apple-darwin18` for macOS
 
-Development Process
--------------------
+#### For macOS cross compilation
 
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/woodcoin-project/woodcoin/tags) are created
-regularly to indicate new official, stable release versions of woodcoin Core.
+    sudo apt-get install curl librsvg2-bin libtiff-tools bsdmainutils cmake imagemagick libz-dev python3-setuptools libtinfo5 xorriso cpio
 
-The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)
-and useful hints for developers can be found in [doc/developer-notes.md](doc/developer-notes.md).
-
-The developer [mailing list](https://groups.google.com/forum/#!forum/woodcoin-dev)
-should be used to discuss complicated or controversial changes before working
-on a patch set.
-
-Developer IRC can be found on Freenode at #woodcoin-dev.
-
-Testing
--------
-
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test on short notice. Please be patient and help out by testing
-other people's pull requests, and remember this is a security-critical project where any mistake might cost people
-lots of money.
-
-### Automated Testing
-
-Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
-submit new unit tests for old code. Unit tests can be compiled and run
-(assuming they weren't disabled in configure) with: `make check`. Further details on running
-and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
-
-There are also [regression and integration tests](/test), written
-in Python, that are run automatically on the build server.
-These tests can be run (if the [test dependencies](/test) are installed) with: `test/functional/test_runner.py`
-
-The Travis CI system makes sure that every pull request is built for Windows, Linux, and macOS, and that unit/sanity tests are run automatically.
-
-### Manual Quality Assurance (QA) Testing
-
-Changes should be tested by somebody other than the developer who wrote the
-code. This is especially important for large or high-risk changes. It is useful
-to add a test plan to the pull request description if testing the changes is
-not straightforward.
-
-Translations
-------------
-
-We only accept translation fixes that are submitted through [Bitcoin Core's Transifex page](https://www.transifex.com/projects/p/bitcoin/).
-Translations are converted to woodcoin periodically.
-
-Translations are periodically pulled from Transifex and merged into the git repository. See the
-[translation process](doc/translation_process.md) for details on how this works.
-
-**Important**: We do not accept translation changes as GitHub pull requests because the next
-pull from Transifex would automatically overwrite them again.
+Note: You must obtain the macOS SDK before proceeding with a cross-compile.
+Under the depends directory, create a subdirectory named `SDKs`.
+Then, place the extracted SDK under this new directory.
+For more information, see [SDK Extraction](../contrib/macdeploy/README.md#sdk-extraction).
