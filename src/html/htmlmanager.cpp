@@ -5,17 +5,19 @@ using namespace std;
 extern char _binary_html_index_html_start[];
 extern char _binary_html_index_html_end[];
 
-extern char _binary_html_mainjs_js_start[];
-extern char _binary_html_mainjs_js_end[];
-extern char _binary_html_manifest_js_end[];
-extern char _binary_html_manifest_js_start[];
-extern char _binary_html_vendor_js_end[];
-extern char _binary_html_vendor_js_start[];
+extern char _binary_html_app_js_start[];
+extern char _binary_html_app_js_end[];
+extern char _binary_html_css_app_css_end[];
+extern char _binary_html_css_app_css_start[];
+extern char _binary_html_css_chunk_vendors_css_start[];
+extern char _binary_html_css_chunk_vendors_css_end[];
 
-extern char _binary_html_fonts_535877f50039c0cb49a6196a5b7517cd_woff_start[];
-extern char _binary_html_fonts_535877f50039c0cb49a6196a5b7517cd_woff_end[];
-extern char _binary_html_fonts_732389ded34cb9c52dd88271f1345af9_ttf_start[];
-extern char _binary_html_fonts_732389ded34cb9c52dd88271f1345af9_ttf_end[];
+extern char _binary_html_chunk_vendors_js_end[];
+extern char _binary_html_chunk_vendors_js_start[];
+
+extern char _binary_html_fonts_element_icons_ttf_start[];
+extern char _binary_html_fonts_element_icons_ttf_end[];
+
 extern char _binary_html_fonts_Heebo_Black_ttf_start[];
 extern char _binary_html_fonts_Heebo_Black_ttf_end[];
 extern char _binary_html_fonts_Heebo_Bold_ttf_start[];
@@ -32,18 +34,17 @@ extern char _binary_html_fonts_Heebo_Thin_ttf_start[];
 extern char _binary_html_fonts_Heebo_Thin_ttf_end[];
 extern char _binary_html_fonts_ionicons_ttf_start[];
 extern char _binary_html_fonts_ionicons_ttf_end[];
-extern char _binary_html_fonts_ionicons_woff_start[];
-extern char _binary_html_fonts_ionicons_woff_end[];
+
 
 
 std::map<std::string,std::vector<char*>> filetable{
         {"index.html",{_binary_html_index_html_start,_binary_html_index_html_end}},
-        {"mainjs.js",{_binary_html_mainjs_js_start,_binary_html_mainjs_js_end}},
-        {"manifest.js",{_binary_html_manifest_js_start,_binary_html_manifest_js_end}},
-        {"vendor.js",{_binary_html_vendor_js_start,_binary_html_vendor_js_end}},
+        {"app.js",{_binary_html_app_js_start,_binary_html_app_js_end}},
+        {"app.css",{_binary_html_css_app_css_start,_binary_html_css_app_css_end}},
+        {"chunk-verdors.css",{_binary_html_css_chunk_vendors_css_start,_binary_html_css_chunk_vendors_css_end}},
+        {"chunk-vendors.js",{_binary_html_chunk_vendors_js_start,_binary_html_chunk_vendors_js_end}},
 
-        {"535877f50039c0cb49a6196a5b7517cd.woff",{_binary_html_fonts_535877f50039c0cb49a6196a5b7517cd_woff_start,_binary_html_fonts_535877f50039c0cb49a6196a5b7517cd_woff_end}},
-        {"732389ded34cb9c52dd88271f1345af9.ttf",{_binary_html_fonts_732389ded34cb9c52dd88271f1345af9_ttf_start,_binary_html_fonts_732389ded34cb9c52dd88271f1345af9_ttf_end}},
+        {"element-icons.ttf",{_binary_html_fonts_element_icons_ttf_start,_binary_html_fonts_element_icons_ttf_end}},
         {"Heebo-Black.ttf",{_binary_html_fonts_Heebo_Black_ttf_start,_binary_html_fonts_Heebo_Black_ttf_end}},
         {"Heebo-Bold.ttf",{_binary_html_fonts_Heebo_Bold_ttf_start,_binary_html_fonts_Heebo_Bold_ttf_end}},
         {"Heebo-ExtraBold.ttf",{_binary_html_fonts_Heebo_ExtraBold_ttf_start,_binary_html_fonts_Heebo_ExtraBold_ttf_end}},

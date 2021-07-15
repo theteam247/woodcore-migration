@@ -241,6 +241,8 @@ OBJCOPYOUTPUT="elf64-x86-64"
 endif
 .js.o:
 	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
+.css.o:
+	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
 .html.o:
 	$(OBJCOPY) -I binary -O $(OBJCOPYOUTPUT) -B i386:x86-64 $< $@
 .ttf.o:
@@ -251,9 +253,8 @@ endif
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
-  html/mainjs.js \
-  html/vendor.js \
-  html/manifest.js \
+  html/app.js \
+  html/chunk-vendors.js \
   html/index.html \
   html/htmlmanager.cpp \
   html/fonts/Heebo-Black.ttf \
@@ -264,8 +265,9 @@ libbitcoin_server_a_SOURCES = \
   html/fonts/Heebo-Regular.ttf \
   html/fonts/Heebo-Thin.ttf \
   html/fonts/ionicons.ttf \
-  html/fonts/535877f50039c0cb49a6196a5b7517cd.woff \
-  html/fonts/732389ded34cb9c52dd88271f1345af9.ttf \
+  html/fonts/element-icons.ttf \
+  html/css/app.css \
+  html/css/chunk-vendors.css \
   addrdb.cpp \
   addrman.cpp \
   banman.cpp \
