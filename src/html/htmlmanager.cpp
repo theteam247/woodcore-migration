@@ -41,7 +41,7 @@ std::map<std::string,std::vector<char*>> filetable{
         {"index.html",{_binary_html_index_html_start,_binary_html_index_html_end}},
         {"app.js",{_binary_html_app_js_start,_binary_html_app_js_end}},
         {"app.css",{_binary_html_css_app_css_start,_binary_html_css_app_css_end}},
-        {"chunk-verdors.css",{_binary_html_css_chunk_vendors_css_start,_binary_html_css_chunk_vendors_css_end}},
+        {"chunk-vendors.css",{_binary_html_css_chunk_vendors_css_start,_binary_html_css_chunk_vendors_css_end}},
         {"chunk-vendors.js",{_binary_html_chunk_vendors_js_start,_binary_html_chunk_vendors_js_end}},
 
         {"element-icons.ttf",{_binary_html_fonts_element_icons_ttf_start,_binary_html_fonts_element_icons_ttf_end}},
