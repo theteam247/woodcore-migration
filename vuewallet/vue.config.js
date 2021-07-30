@@ -3,16 +3,8 @@ const resolve = require('path').resolve
 
 module.exports = {
     outputDir: resolve('D:\\CLionProjects\\litecoin\\src', 'html'),
-    publicPath:'',
-    filenameHashing:false,
-    productionSourceMap:false,
-    configureWebpack: {
+    publicPath: "/webgui/",
+    filenameHashing: false,
+    productionSourceMap: false,
 
-        output: {
-
-            filename:  '[name].js',
-            chunkFilename: '[id].js?[chunkhash]',
-
-        },
-    }
 }
