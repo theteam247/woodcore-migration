@@ -279,7 +279,7 @@ static bool HTTPReq_HTML(HTTPRequest* req, const std::string &)
             req->WriteHeader("Content-Type", "text/css");
             auto begin=jreq.URI.find_last_of("/");
             auto end=jreq.URI.find_first_of("?");
-            end=end==std::string::npos?jreq.URI.size():end;
+            end=std::string::npos?jreq.URI.size():end;
             filename=jreq.URI.substr(begin+1,end-begin-1);
             std::cout<<"filename:::"<<filename<<std::endl;
         }
@@ -287,7 +287,7 @@ static bool HTTPReq_HTML(HTTPRequest* req, const std::string &)
             req->WriteHeader("Content-Type", "application/javascript");
             auto begin=jreq.URI.find_last_of("/");
             auto end=jreq.URI.find_first_of("?");
-            end=end==std::string::npos?jreq.URI.size():end;
+            end=std::string::npos?jreq.URI.size():end;
             filename=jreq.URI.substr(begin+1,end-begin-1);
             std::cout<<"filename:::"<<filename<<std::endl;
 
